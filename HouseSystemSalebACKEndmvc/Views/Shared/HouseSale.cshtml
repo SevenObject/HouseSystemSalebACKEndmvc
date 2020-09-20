@@ -19,7 +19,7 @@
                 <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:;"><i class="iconfont">&#xe607;</i>楼盘管理</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="https://localhost:44323/HouseSale/index" data-url="menu1.html" data-id='1' data-text="楼盘信息"><span class="l-line"></span>楼盘信息</a></dd>
+                        <dd><a href="http://localhost:5171/HouseSale/Index" data-url="menu1.html" data-id='1' data-text="楼盘信息"><span class="l-line"></span>楼盘信息</a></dd>
                         <dd><a href="https://localhost:44323/HouseSale/Show" data-url="menu2.html" data-id='2' data-text="楼栋信息"><span class="l-line"></span>楼栋信息</a></dd>
                         <dd><a href="javascript:;" data-url="menu2.html" data-id='3' data-text="户型信息"><span class="l-line"></span>户型信息</a></dd>
                     </dl>
@@ -54,7 +54,7 @@
                     </a>
                 </div>
                 <ul class="layui-nav" lay-filter="rightNav">
-                    <li class="layui-nav-item"><a href="javascript:;" data-url="email.html" data-id='4' data-text="邮件系统">邮件<i class="iconfont">&#xe603;</i></a></li>
+                    <li class="layui-nav-item"><a href="javascript:;" data-url="email.html" data-id='4' data-text="邮件系统"><i class="iconfont">&#xe603;</i></a></li>
                     <li class="layui-nav-item">
                         <a href="javascript:;" data-url="admin-info.html" data-id='5' data-text="个人信息">超级管理员</a>
                     </li>
@@ -65,10 +65,11 @@
             <div class="main-layout-body">
                 <!--tab 切换-->
                 <div class="layui-tab layui-tab-brief main-layout-tab" lay-filter="tab" lay-allowClose="true">
-                    <ul class="layui-tab-title">
-                        <li>后台主页</li>
+                    <ul  class="layui-tab-title">
+                        
                         @RenderBody()
                     </ul>
+                    
                     <div class="layui-tab-content">
                         <div class="layui-tab-item layui-show" style="background: #f5f5f5;">
                             <!--1-->
@@ -79,9 +80,17 @@
                 </div>
             </div>
         </div>
+        <!--遮罩-->
+        <div class="main-mask">
+
+        </div>
     </div>
     <script src="~/layui-v2.5.6/layui/layui.js" type="text/javascript" charset="utf-8"></script>
     <script src="~/js/common.js" type="text/javascript" charset="utf-8"></script>
     <script src="~/js/main.js" type="text/javascript" charset="utf-8"></script>
 </body>
 </html>
+<script src="~/jquery-3.3.1.min.js"></script>
+<script>
+     
+</script>
