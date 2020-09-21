@@ -13,13 +13,13 @@
     <div class="layui-form" id="table-list">
         <div class="layui-form-item">
             @*<div class="layui-inline tool-btn">
-                <button class="layui-btn layui-btn-small layui-btn-normal addBtn hidden-xs" data-url="menu-add.html">
-                    <i class="layui-icon">+</i>
-                </button>
-                <button class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs" data-url="menu-add.html">
-                    <i class="iconfont">||</i>
-                </button>
-            </div>*@
+                    <button class="layui-btn layui-btn-small layui-btn-normal addBtn hidden-xs" data-url="menu-add.html">
+                        <i class="layui-icon">+</i>
+                    </button>
+                    <button class="layui-btn layui-btn-small layui-btn-warm listOrderBtn hidden-xs" data-url="menu-add.html">
+                        <i class="iconfont">||</i>
+                    </button>
+                </div>*@
             <div class="layui-btn layui-btn-small layui-btn-normal addBtn hidden-xs">
                 <input type="text" id="name" required lay-verify="required" placeholder="请输入楼盘名称" autocomplete="off" class="layui-input" />
             </div>
@@ -30,22 +30,22 @@
                 <input type="text" id="jsrq" required lay-verify="required" placeholder="请输入结束日期" autocomplete="off" class="layui-input" onclick="WdatePicker()" />
             </div>
             @*<div class="layui-inline">
-                <select name="states" lay-filter="status">
-                    <option>请选择一个状态</option>
-                    <option value="010">待定</option>
-                    <option value="020">暂定</option>
-                </select>
-                <div class="layui-unselect layui-form-select">
-                    <div class="layui-select-title">
-                        <input type="text" class="layui-input layui-unselect" readonly placeholder="请选择一个状态" />
-                        <i class="layui-edge"></i>
+                    <select name="states" lay-filter="status">
+                        <option>请选择一个状态</option>
+                        <option value="010">待定</option>
+                        <option value="020">暂定</option>
+                    </select>
+                    <div class="layui-unselect layui-form-select">
+                        <div class="layui-select-title">
+                            <input type="text" class="layui-input layui-unselect" readonly placeholder="请选择一个状态" />
+                            <i class="layui-edge"></i>
+                        </div>
                     </div>
-                </div>
-                <dl class="layui-anim layui-anim-upbit">
-                    <dd lay-value="010">待定</dd>
-                    <dd lay-value="020">暂定</dd>
-                </dl>
-            </div>*@
+                    <dl class="layui-anim layui-anim-upbit">
+                        <dd lay-value="010">待定</dd>
+                        <dd lay-value="020">暂定</dd>
+                    </dl>
+                </div>*@
             <button style="margin-left:35px;" class="layui-btn layui-btn-normal" lay-submit="search" onclick="Sele()">搜索</button>
             ::after
         </div>
@@ -54,7 +54,7 @@
                 <tr>
                     <!--<th>
                         <input type="checkbox" lay-skin="primary" lay-filter="allChoose" />-->
-                        @*<div class="layui-unselect layui-form-checkbox" lay-skin="primary">
+                    @*<div class="layui-unselect layui-form-checkbox" lay-skin="primary">
                             <i class="layui-icon"></i>
                         </div>*@
                     <!--</th>-->
@@ -82,15 +82,55 @@
         <input type="button" class="layui-btn" onclick="Wei()" value="尾页" />
     </div>
 </div>
+<script src="~/lib/jquery/dist/jquery.js"></script>
 <script src="~/jquery-3.3.1.min.js"></script>
 <script>
     $(document).ready(function () {
         Sele();
     })
+    //Date.prototype.Format = function (fmt) {
+    //    var o = {
+    //        "M+": this.getMonth() + 1, //月份
+    //        "d+": this.getDate(), //日
+    //        "H+": this.getHours(), //小时
+    //        "m+": this.getMinutes(), //分
+    //        "s+": this.getSeconds(), //秒
+    //        "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+    //        "S": this.getMilliseconds() //毫秒
+    //    };
+    //    if (/(y+)/.test(fmt)) fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+    //    for (var k in o)
+    //        if (new RegExp("(" + k + ")").test(fmt)) fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+    //    return fmt;
+    //}
     var pageindex = 1;
     var pagesize = 2;
     var pagecount = 1;
     var allcount = 1;
+
+    function First() {
+        pageindex = 1;
+        Sele();
+    }
+
+    function Pre() {
+        if (pageindex >1) {
+            pageindex--;
+            Sele();
+        } else {
+            alert("这是首页");
+        }
+    }
+
+    function Next() {
+        pageindex++;
+        Sele();
+    }
+
+    function Wei() {
+        pageindex = pagecount;
+        Sele();
+    }
 
     function Sele() {
         var na = $("#name").val();
@@ -114,7 +154,7 @@
                         tg += "<tr>"
                             + "<td>" + this.hName + "</td>"
                             + "<td>" + this.htPicture + "</td>"
-                            + "<td>" + this.htpDateTime + "</td>"
+                            + "<td>" + this.htpDateTime+ "</td>"
                             + "<td>" + this.projictSite + "</td>"
                             + "<td>" + this.sellHouse + "</td>"
                             + "<td>" + this.developers + "</td>"
